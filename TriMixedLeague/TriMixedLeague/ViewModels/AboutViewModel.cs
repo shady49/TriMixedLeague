@@ -28,7 +28,7 @@ namespace TriMixedLeague.ViewModels
 		}
 		public AboutViewModel()
         {
-            Title = "League Secretary";
+            Title = "League Secretary for TriMixedLeague";
 			//LeagueNum = "123456";
 			//OpenWebCommand = new Command(async () => await Browser.OpenAsync("https://www.leaguesecretary.com/bowling-centers/west-lanes-bowl-omaha-nebraska/bowling-leagues/tues-mut-mixed20/dashboard/40233"));
 			OpenWebCommand = new Command(async () => await Browser.OpenAsync("https://www.leaguesecretary.com/bowling-centers/search"));
