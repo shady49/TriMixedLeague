@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TriMixedLeague.Views.RecapDetailPage">
+    <ContentPage.Content>
+        <StackLayout>
+            
+            <Label Text="Bowler:" FontSize="Medium" />
+            <Entry Text="{Binding Bowler}" TextChanged="Entry_TextChanged" Focused="Entry_Focused" ReturnType="Next" FontSize="Small"/>
+            <Label Text="Average:" FontSize="Medium" />
+            <Label x:Name="Ave"  Text="{Binding Average}" FontSize="Small"/>
+            <Label Text="Handicap:" FontSize="Medium" />
+            <Label x:Name="Hcp" Text="{Binding Handicap}" FontSize="Small"/>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Label Text="Game1" Grid.Row="0" Grid.Column="0"  FontAttributes="Bold" FontSize="20" HorizontalTextAlignment="End"/>
+                <Label Text="Game2" Grid.Row="0" Grid.Column="1"  FontAttributes="Bold" FontSize="20" HorizontalTextAlignment="End"/>
+                <Label Text="Game3" Grid.Row="0" Grid.Column="2"  FontAttributes="Bold" FontSize="20" HorizontalTextAlignment="End"/>
+                <Label Text="Series" Grid.Row="0" Grid.Column="3"  FontAttributes="Bold" FontSize="20" HorizontalTextAlignment="End"/>
+                <Entry x:Name="Game1" Text="{Binding Game1}" Grid.Row="1" Grid.Column="0" Placeholder="Game1" FontAttributes="Bold" FontSize="20" ReturnType="Next" Keyboard="Numeric" Focused="Entry_Focused" Completed="Entry_Completed" MaxLength="4" HorizontalTextAlignment="End" ></Entry>
+                <Entry x:Name="Game2" Text="{Binding Game2}" Grid.Row="1" Grid.Column="1" Placeholder="Game2" FontAttributes="Bold" FontSize="20" ReturnType="Next" Keyboard="Numeric" Focused="Entry_Focused" Completed="Entry_Completed" MaxLength="4" HorizontalTextAlignment="End" ></Entry>
+                <Entry x:Name="Game3" Text="{Binding Game3}" Grid.Row="1" Grid.Column="2" Placeholder="Game3" FontAttributes="Bold" FontSize="20" ReturnType="Done" Keyboard="Numeric" Focused="Entry_Focused" Completed="Entry_Completed" MaxLength="4" HorizontalTextAlignment="End" ></Entry>
+                <Entry x:Name="Series" Text="{Binding Series}" Grid.Row="1" Grid.Column="3" Placeholder="Series" FontAttributes="Bold" FontSize="20" ReturnType="Done" Keyboard="Numeric" Focused="Entry_Focused" Completed="Entry_Completed_2" MaxLength="4" HorizontalTextAlignment="End" IsReadOnly="True" ></Entry>
+                <Label Text="{Binding Handicap}" Grid.Row="2" Grid.Column="0" FontAttributes="Bold" FontSize="20" HorizontalTextAlignment="End"/>
+                <Label Text="{Binding Handicap}" Grid.Row="2" Grid.Column="1" FontAttributes="Bold" FontSize="20" HorizontalTextAlignment="End"/>
+                <Label Text="{Binding Handicap}" Grid.Row="2" Grid.Column="2" FontAttributes="Bold" FontSize="20" HorizontalTextAlignment="End"/>
+                <Label x:Name="HandicapSeries" Text="{Binding HandicapSeries}"  Grid.Row="2" Grid.Column="3" FontAttributes="Bold" FontSize="20" HorizontalTextAlignment="End"/>
+                
+                <Label x:Name="Gm1Hcp" Text="{Binding Game1Hcp}" Grid.Row="3" Grid.Column="0" FontAttributes="Bold" FontSize="20" HorizontalTextAlignment="End"/>
+                <Label x:Name="Gm2Hcp" Text="{Binding Game2Hcp}" Grid.Row="3" Grid.Column="1" FontAttributes="Bold" FontSize="20" HorizontalTextAlignment="End"/>
+                <Label x:Name="Gm3Hcp" Text="{Binding Game3Hcp}" Grid.Row="3" Grid.Column="2" FontAttributes="Bold" FontSize="20" HorizontalTextAlignment="End"/>
+                <Label x:Name="SeriesHcp" Text="{Binding SeriesHcp}" Grid.Row="3" Grid.Column="3" FontAttributes="Bold" FontSize="20" HorizontalTextAlignment="End"/>
+                <Label Text="Pt1" Grid.Row="4" Grid.Column="0"  FontAttributes="Bold" FontSize="20" HorizontalTextAlignment="End"/>
+                <Label Text="Pt2" Grid.Row="4" Grid.Column="1"  FontAttributes="Bold" FontSize="20" HorizontalTextAlignment="End"/>
+                <Label Text="Pt3" Grid.Row="4" Grid.Column="2"  FontAttributes="Bold" FontSize="20" HorizontalTextAlignment="End"/>
+                <Label Text="PtSeries" Grid.Row="4" Grid.Column="3"  FontAttributes="Bold" FontSize="20" HorizontalTextAlignment="End"/>
+                <Label Text="{Binding Pt1}" Grid.Row="5" Grid.Column="0"  FontAttributes="Bold" FontSize="20" HorizontalTextAlignment="End"/>
+                <Label Text="{Binding Pt2}" Grid.Row="5" Grid.Column="1"  FontAttributes="Bold" FontSize="20" HorizontalTextAlignment="End"/>
+                <Label Text="{Binding Pt3}" Grid.Row="5" Grid.Column="2"  FontAttributes="Bold" FontSize="20" HorizontalTextAlignment="End"/>
+                <Label Text="{Binding PtSeries}" Grid.Row="5" Grid.Column="3"  FontAttributes="Bold" FontSize="20" HorizontalTextAlignment="End"/>
+            </Grid>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

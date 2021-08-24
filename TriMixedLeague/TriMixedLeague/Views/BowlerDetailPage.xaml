@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TriMixedLeague.Views.BowlerDetailPage"
+             Title="{Binding Title}">
+
+    <StackLayout Spacing="20" Padding="15">
+        <Label Text="Bowler:" FontSize="Medium" />
+        <Label Text="{Binding Bowler}" FontSize="Small"/>
+        <Label Text="Average:" FontSize="Medium" />
+        <Label Text="{Binding Average}" FontSize="Small"/>
+        <Label Text="Handicap:" FontSize="Medium" />
+        <Label Text="{Binding Handicap}" FontSize="Small"/>
+        <Button Margin="0,10,0,0" Text="Bowler Stats"
+                        Command="{Binding Bowlerhttp}"
+                        Clicked="BowlerHistory"
+                        BackgroundColor="{StaticResource Primary}"
+                        TextColor="White" />
+        <Button Margin="0,10,0,0" Text="Team Stats"
+                        Command="{Binding Teamhttp}"
+                        Clicked="TeamHistory"
+                        BackgroundColor="{StaticResource Primary}"
+                        TextColor="White" />
+    </StackLayout>
+
+</ContentPage>

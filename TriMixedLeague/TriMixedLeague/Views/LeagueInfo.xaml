@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TriMixedLeague.Views.LeagueInfo">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="League Info"
+                   FontSize="24"
+                VerticalOptions="Start" 
+                HorizontalOptions="CenterAndExpand" />
+            <Button x:Name="Location" FontSize="16" Text="{Binding MyCity}" Clicked="Button_Clicked_States" />
+            <Button x:Name="Centers" FontSize="16" Text="{Binding MyCenter}" Clicked="Button_Clicked_Centers"/>
+            <Button x:Name="Leagues" FontSize="16" Text="{Binding MyLeague}" Clicked="Button_Clicked_Leagues"/>
+            <!--<Button x:Name="Teams" FontSize="16" Text="{Binding MyTeams}" Clicked="Button_Clicked_Teams"/>
+            <Button x:Name="BuildBowlers" FontSize="16" Text="{Binding MyBowlerInfo}" Clicked="BuildBowlers_Clicked"/>-->
+
+            <ScrollView>
+
+                <Picker x:Name="picker" Title="{Binding MyCity}" 
+                    FontSize="24"
+                    ItemsSource="{Binding CitiesList}"
+                    ItemDisplayBinding="{Binding Value}"
+                    SelectedItem="{Binding SelectedCity}"/>
+
+            </ScrollView>
+            <!--<ScrollView>-->
+
+            <Picker x:Name="pickercenter"
+                    Title="{Binding MyCenter}" 
+                    FontSize="24"
+                    ItemsSource="{Binding CentersList}"  
+                    ItemDisplayBinding="{Binding ValueCenter}"
+                    SelectedItem="{Binding SelectedCenter}"/>
+
+            <Picker x:Name="pickerleagues"
+                    Title="{Binding MyLeague}" 
+                    FontSize="24"
+                    ItemsSource="{Binding LeagueList}"  
+                    ItemDisplayBinding="{Binding ValueLeague}"
+                    SelectedItem="{Binding SelectedLeague}"/>
+
+            <!--<Picker x:Name="pickerteams"
+                    Title="{Binding MyTeam}" 
+                    FontSize="24"
+                    ItemsSource="{Binding TeamList}"  
+                    ItemDisplayBinding="{Binding ValueTeams}"
+                    SelectedItem="{Binding SelectedTeams}"/>
+
+            <Picker x:Name="pickerbowlers"
+                    Title="" 
+                    FontSize="24"
+                    ItemsSource="{Binding BowlerList}"  
+                    ItemDisplayBinding="{Binding Value}"
+                    SelectedItem="{Binding SelectedBowler}"/>-->
+            <Button x:Name="SelectSaveLeagueInfo" Text="{Binding MyLeagueInfo}" Clicked="OnActionSheetSimpleClicked"/>
+            <!--</ScrollView>-->
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

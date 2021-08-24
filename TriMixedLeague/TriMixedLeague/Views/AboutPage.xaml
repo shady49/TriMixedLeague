@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TriMixedLeague.Views.AboutPage"
+             xmlns:vm="clr-namespace:TriMixedLeague.ViewModels"
+             Title="{Binding Title}">
+
+    <ContentPage.BindingContext>
+        <vm:AboutViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Accent">#96d1ff</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackLayout BackgroundColor="{StaticResource Accent}" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+            <Label Text="Tue TriMixed League" HorizontalOptions="CenterAndExpand" FontSize="32"/>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+
+                <ContentView Padding="0,0,0,20" VerticalOptions="FillAndExpand">
+                    <Image VerticalOptions="Center" HeightRequest="76" Source="TriMixed.png" />
+                </ContentView>
+            </StackLayout>
+        </StackLayout>
+        <ScrollView Grid.Row="1">
+            <StackLayout Orientation="Vertical" Padding="30,12,30,24">
+                <Label Text="League Number:" FontSize="Title" />
+                <Entry x:Name="LeagueNum" TextChanged="LeagueNum_TextChanged" Text="{Binding LeagueNum}"  FontSize="24" Keyboard="Numeric" MaxLength="6" ClearButtonVisibility="WhileEditing" ReturnType="Next" />
+                <Label Text="Enter League Year:" FontSize="Title"/>
+                <Entry x:Name="Year" TextChanged="YearNum_TextChanged" Text="{Binding YearNum}"  FontSize="24" Keyboard="Numeric" MaxLength="4" ClearButtonVisibility="WhileEditing" ReturnType="Next" />
+                <Label Text="Enter Week:" FontSize="Title"/>
+                <Entry x:Name="Week" TextChanged="WeekNum_TextChanged" Text="{Binding WeekNum}" FontSize="24" Keyboard="Numeric" MaxLength="2" ReturnType="Done" />
+                <Label FontSize="16" Padding="0,24,0,0">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="Access League Website "/>
+                                <Span Text="https://www.leaguesecretary.com/bowling-centers/" FontAttributes="Bold"/>
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Button Margin="0,10,0,0" Text="League Secretary"
+                        Command="{Binding OpenWebCommand}"
+                        BackgroundColor="{StaticResource Primary}"
+                        TextColor="White" />
+            </StackLayout>
+        </ScrollView>
+    </Grid>
+
+</ContentPage>

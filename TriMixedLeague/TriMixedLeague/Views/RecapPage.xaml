@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TriMixedLeague.Views.RecapPage"
+             Title="{Binding Title}"
+             xmlns:local="clr-namespace:TriMixedLeague.ViewModels"  
+             xmlns:model="clr-namespace:TriMixedLeague.Models"  
+             x:Name="BrowseRecapPage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" Command="{Binding AddItemCommand}" />
+    </ContentPage.ToolbarItems>
+    <!--
+      x:DataType enables compiled bindings for better performance and compile time validation of binding expressions.
+      https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/data-binding/compiled-bindings
+    -->
+    <RefreshView x:DataType="local:RecapViewModel" Command="{Binding LoadItemsCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
+        <CollectionView x:Name="RecapListView"
+                ItemsSource="{Binding Bowlers}"
+                SelectionMode="None">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Padding="10" x:DataType="model:Bowler">
+                        <!--<SearchBar Placeholder="Bowler" TextChanged="SearchBar_TextChanged"></SearchBar>
+                        <CollectionView x:Name="Coll1" ItemsLayout="VerticalList"/>
+                        -->
+
+                        <Label Text="{Binding Name}" 
+                        Style="{DynamicResource ListItemTextStyle}" 
+                        FontSize="18" FontAttributes="Bold" />
+                        <Label>
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="{Binding Average, StringFormat='{0,-5}'}" FontFamily="courier new" FontAttributes="Bold" FontSize="Medium"/>
+                                    <Span Text="{Binding Handicap, StringFormat='{0,-5}'}" FontFamily="courier new" FontAttributes="Bold" FontSize="Medium"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer 
+                                NumberOfTapsRequired="1"
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type local:RecapViewModel}}, Path=ItemTapped}"		
+                                CommandParameter="{Binding .}">
+                            </TapGestureRecognizer>
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </RefreshView>
+</ContentPage>
