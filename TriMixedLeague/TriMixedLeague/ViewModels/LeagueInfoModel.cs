@@ -428,7 +428,7 @@ namespace TriMixedLeague.ViewModels
 			//Extract.teamhttp = Global.http;
 			Global.http = Global.SelectedLeagueInfoList[1].Http;
 			ListHttps.Add(Global.http);
-			string strOutput = extract.getleagues(http);
+			string strOutput = extract.getleagues(Global.SelectedLeagueInfoList[1].Http);
 			//string strOutput = extract.getleagues(Global.http);
 			string[] loc = strOutput.Split('\n');
 			int dx;
