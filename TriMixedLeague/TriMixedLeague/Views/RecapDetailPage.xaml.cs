@@ -29,6 +29,11 @@ namespace TriMixedLeague.Views
 
         private void Entry_TextChanged(object sender, TextChangedEventArgs e)
         {
+            //if (e.OldTextValue != null)
+            //{
+            //    if (e.NewTextValue.Length < e.OldTextValue.Length) return;
+            //}
+            
             //List<Team> teamlist;
             if (Global.indicator == "b")
             {
@@ -47,6 +52,7 @@ namespace TriMixedLeague.Views
                 {
                   calcpts.LoadItemId(bowllist[0].Id);
                 }
+                
             }
             else
             {
