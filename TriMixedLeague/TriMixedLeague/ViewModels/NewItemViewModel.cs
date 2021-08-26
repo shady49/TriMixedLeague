@@ -29,13 +29,13 @@ namespace TriMixedLeague.ViewModels
                // && !String.IsNullOrWhiteSpace(description);
         }
 
-        public string Text
+        public string BowlersName
         {
             get => bowlername;
             set => SetProperty(ref bowlername, value);
         }
 
-        public int Description
+        public int Average
         {
             get => average;
             set => SetProperty(ref average, value);
@@ -52,7 +52,7 @@ namespace TriMixedLeague.ViewModels
 
         private async void OnSave()
         {
-            extract.addbowler(Text);
+            extract.addbowler(BowlersName);
             
             //await DataStore.AddItemAsync(newItem);
             //bowlers = new List<Bowlerl>();
