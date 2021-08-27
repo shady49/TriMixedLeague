@@ -580,7 +580,7 @@ namespace BowlerLib
 										"0",
 										"0"
 										));
-
+			bowlerslist.Sort((x,y)=>x.Name.CompareTo(y.Name));
 			return bowlerslist;
 		}
 	}
