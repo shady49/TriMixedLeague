@@ -325,37 +325,37 @@ namespace BowlerLib
 					Hsg = mteam[9],
 					Hss = mteam[10]
 				});
-				mBowlerName = mteam[2];
-				mTM = mteam[1];
-				mPOS = "0";
-				mGMS = "0";
-				//mPINS = mteam[8];
-				mAVG = "0";
-				mHCP = "0";
-				mHHG = "0";
-				mHHS = "0";
-				mHSG = mteam[9];
-				mHSS = mteam[10];
-				mMIB = "0";
-				mHTTPbowler = "0";
-				mHTTPteam = "0";
+				//mBowlerName = mteam[2];
+				//mTM = mteam[1];
+				//mPOS = "0";
+				//mGMS = "0";
+				////mPINS = mteam[8];
+				//mAVG = "0";
+				//mHCP = "0";
+				//mHHG = "0";
+				//mHHS = "0";
+				//mHSG = mteam[9];
+				//mHSS = mteam[10];
+				//mMIB = "0";
+				//mHTTPbowler = "0";
+				//mHTTPteam = "0";
 
-				bowlerslist.Add(new BowlersList(mBowlerName,
-								mTM,
-								mPOS,
-								mGMS,
-								mPINS,
-								mAVG,
-								mHCP,
-								mHHG,
-								mHHS,
-								mHSG,
-								mHSS,
-								mMIB,
-								mSeq,
-								mHTTPbowler,
-								mHTTPteam
-								));
+				//bowlerslist.Add(new BowlersList(mBowlerName,
+				//				mTM,
+				//				mPOS,
+				//				mGMS,
+				//				mPINS,
+				//				mAVG,
+				//				mHCP,
+				//				mHHG,
+				//				mHHS,
+				//				mHSG,
+				//				mHSS,
+				//				mMIB,
+				//				mSeq,
+				//				mHTTPbowler,
+				//				mHTTPteam
+				//				));
 
 
 			}
@@ -553,6 +553,7 @@ namespace BowlerLib
 				{
 					if (Int32.Parse(bowlerslist[dx].GMS) > 0)
 					{
+						bowlerslist.Sort((x, y) => x.Name.CompareTo(y.Name));
 						savebowlers = bowlerslist;
 						return bowlerslist;
 					}

@@ -44,6 +44,29 @@ namespace TriMixedLeague.Views
                     hcp = (220 - (Int32.Parse(Game1.Text) + Int32.Parse(Game2.Text) + Int32.Parse(Game3.Text)) / 3) * .9;
                     Hcp.Text = Convert.ToInt32(hcp).ToString();
                     Ave.Text = ave.ToString();
+                    calcpts.Handicap = (int)hcp;
+                    Hcap1.Text = Convert.ToInt32(hcp).ToString();
+                    CalculateSeries(Game1.Text, Hcap1.Text);
+                    Hcap2.Text = Convert.ToInt32(hcp).ToString();
+                    CalculateSeries(Game2.Text, Hcap2.Text);
+                    Hcap3.Text = Convert.ToInt32(hcp).ToString();
+                    CalculateSeries(Game3.Text, Hcap3.Text);
+                    //var b = MockDataStore.bowlers;
+                    int dx = 0;
+                    do
+                    {
+                        if (MockDataStore.bowlers[dx].Name.ToLower().Contains(e.NewTextValue.ToLower())) break;
+                        dx++;
+                    } while (dx < 6);
+
+
+                    MockDataStore.bowlers[dx].Game1 = Convert.ToInt32(Game1.Text);
+                    MockDataStore.bowlers[dx].Game2 = Convert.ToInt32(Game2.Text);
+                    MockDataStore.bowlers[dx].Game3 = Convert.ToInt32(Game3.Text);
+                    MockDataStore.bowlers[dx].Handicap = Convert.ToInt32(hcp);
+                 
+                    
+                    calcpts.CheckPts();
                 }
                 List<Bowler> bowllist;
                 var bs = BowlerDataStore.bowlers.Where(b => b.Name.ToLower().Contains(e.NewTextValue.ToLower()));

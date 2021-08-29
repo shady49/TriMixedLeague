@@ -34,9 +34,9 @@
                 <Entry x:Name="Game2" Text="{Binding Game2}" Grid.Row="1" Grid.Column="1" Placeholder="Game2" FontAttributes="Bold" FontSize="20" ReturnType="Next" Keyboard="Numeric" Focused="Entry_Focused" Completed="Entry_Completed" MaxLength="4" HorizontalTextAlignment="End" ></Entry>
                 <Entry x:Name="Game3" Text="{Binding Game3}" Grid.Row="1" Grid.Column="2" Placeholder="Game3" FontAttributes="Bold" FontSize="20" ReturnType="Done" Keyboard="Numeric" Focused="Entry_Focused" Completed="Entry_Completed" MaxLength="4" HorizontalTextAlignment="End" ></Entry>
                 <Entry x:Name="Series" Text="{Binding Series}" Grid.Row="1" Grid.Column="3" Placeholder="Series" FontAttributes="Bold" FontSize="20" ReturnType="Done" Keyboard="Numeric" Focused="Entry_Focused" Completed="Entry_Completed_2" MaxLength="4" HorizontalTextAlignment="End" IsReadOnly="True" ></Entry>
-                <Label Text="{Binding Handicap}" Grid.Row="2" Grid.Column="0" FontAttributes="Bold" FontSize="20" HorizontalTextAlignment="End"/>
-                <Label Text="{Binding Handicap}" Grid.Row="2" Grid.Column="1" FontAttributes="Bold" FontSize="20" HorizontalTextAlignment="End"/>
-                <Label Text="{Binding Handicap}" Grid.Row="2" Grid.Column="2" FontAttributes="Bold" FontSize="20" HorizontalTextAlignment="End"/>
+                <Label x:Name="Hcap1" Text="{Binding Handicap}" Grid.Row="2" Grid.Column="0" FontAttributes="Bold" FontSize="20" HorizontalTextAlignment="End"/>
+                <Label x:Name="Hcap2" Text="{Binding Handicap}" Grid.Row="2" Grid.Column="1" FontAttributes="Bold" FontSize="20" HorizontalTextAlignment="End"/>
+                <Label x:Name="Hcap3" Text="{Binding Handicap}" Grid.Row="2" Grid.Column="2" FontAttributes="Bold" FontSize="20" HorizontalTextAlignment="End"/>
                 <Label x:Name="HandicapSeries" Text="{Binding HandicapSeries}"  Grid.Row="2" Grid.Column="3" FontAttributes="Bold" FontSize="20" HorizontalTextAlignment="End"/>
                 
                 <Label x:Name="Gm1Hcp" Text="{Binding Game1Hcp}" Grid.Row="3" Grid.Column="0" FontAttributes="Bold" FontSize="20" HorizontalTextAlignment="End"/>
