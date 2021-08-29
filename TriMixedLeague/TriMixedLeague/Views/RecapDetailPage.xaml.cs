@@ -51,7 +51,7 @@ namespace TriMixedLeague.Views
                     CalculateSeries(Game2.Text, Hcap2.Text);
                     Hcap3.Text = Convert.ToInt32(hcp).ToString();
                     CalculateSeries(Game3.Text, Hcap3.Text);
-                    //var b = MockDataStore.bowlers;
+
                     int dx = 0;
                     do
                     {
@@ -64,8 +64,19 @@ namespace TriMixedLeague.Views
                     MockDataStore.bowlers[dx].Game2 = Convert.ToInt32(Game2.Text);
                     MockDataStore.bowlers[dx].Game3 = Convert.ToInt32(Game3.Text);
                     MockDataStore.bowlers[dx].Handicap = Convert.ToInt32(hcp);
-                 
-                    
+
+                    dx = 0;
+                    do
+                    {
+                        if (BowlerDataStore.bowlers[dx].Name.ToLower().Contains(e.NewTextValue.ToLower())) break;
+                        dx++;
+                    } while (dx < BowlerDataStore.bowlers.Count);
+                    BowlerDataStore.bowlers[dx].Handicap = Convert.ToInt32(hcp);
+                    BowlerDataStore.bowlers[dx].Average = ave;
+                    BowlerDataStore.bowlers[dx].Game1 = Convert.ToInt32(Game1.Text);
+                    BowlerDataStore.bowlers[dx].Game2 = Convert.ToInt32(Game2.Text);
+                    BowlerDataStore.bowlers[dx].Game3 = Convert.ToInt32(Game3.Text);
+
                     calcpts.CheckPts();
                 }
                 List<Bowler> bowllist;
@@ -84,7 +95,8 @@ namespace TriMixedLeague.Views
                 teamlist = bs.ToList();
                 if (teamlist.Count == 1)
                 {
-                    calcpts.LoadItemId(teamlist[0].TeamName);
+                    Name.Text = teamlist[0].TeamName;
+                    //calcpts.LoadItemId(teamlist[0].TeamName);
                 }
             }
             

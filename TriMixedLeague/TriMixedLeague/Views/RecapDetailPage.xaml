@@ -6,7 +6,7 @@
         <StackLayout>
             
             <Label Text="Bowler:" FontSize="Medium" />
-            <Entry Text="{Binding Bowler}" TextChanged="Entry_TextChanged" Focused="Entry_Focused" ReturnType="Next" FontSize="Small"/>
+            <Entry x:Name="Name" Text="{Binding Bowler}" TextChanged="Entry_TextChanged" Focused="Entry_Focused" ReturnType="Next" FontSize="Small"/>
             <Label Text="Average:" FontSize="Medium" />
             <Label x:Name="Ave"  Text="{Binding Average}" FontSize="Small"/>
             <Label Text="Handicap:" FontSize="Medium" />
