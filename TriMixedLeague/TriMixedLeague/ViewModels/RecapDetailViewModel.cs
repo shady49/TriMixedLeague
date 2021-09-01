@@ -269,6 +269,7 @@ namespace TriMixedLeague.ViewModels
                 if (itemId == null) return;
                 var item = await DataStore.GetItemAsync(itemId);
                 Global.itemId = itemId;
+                if (item.Indicator == "t" && Global.teamid!=null) item.Name = Global.teamid;
                 Id = item.Id;
                 Bowler = item.Name;
                 Average = item.Average;

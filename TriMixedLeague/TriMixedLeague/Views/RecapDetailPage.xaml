@@ -7,7 +7,10 @@
             
             <Label Text="Bowler:" FontSize="Medium" />
             <Entry x:Name="Name" Text="{Binding Bowler}" TextChanged="Entry_TextChanged" Focused="Entry_Focused" ReturnType="Next" FontSize="Small"/>
-            <Label Text="Average:" FontSize="Medium" />
+            
+            <ListView x:Name="TeamBowlerView" ItemSelected="TeamBowlerView_ItemSelected" Focused="TeamBowlerView_Focused" VerticalOptions="Start" HeightRequest="100"></ListView>
+
+            
             <Label x:Name="Ave"  Text="{Binding Average}" FontSize="Small"/>
             <Label Text="Handicap:" FontSize="Medium" />
             <Label x:Name="Hcp" Text="{Binding Handicap}" FontSize="Small"/>

@@ -27,6 +27,7 @@ namespace TriMixedLeague
 		public static string itemId;
 		public static string indicator;
 		public static string http;
+		public static string teamid;
 		public static LeagueInfoModel leagueinfo = new LeagueInfoModel();
 
 		public static List<TriMixedLeague.Models.Bowler> Bowlers { get; private set; }

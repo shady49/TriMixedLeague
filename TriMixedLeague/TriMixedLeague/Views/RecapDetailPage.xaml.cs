@@ -17,6 +17,7 @@ namespace TriMixedLeague.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class RecapDetailPage : ContentPage
     {
+        public List<Team> teamlist;
         RecapDetailViewModel calcpts = new RecapDetailViewModel();
         public RecapDetailPage()
         {
@@ -80,8 +81,17 @@ namespace TriMixedLeague.Views
                     calcpts.CheckPts();
                 }
                 List<Bowler> bowllist;
+                List<string> bowlers = new List<string>();
+                int dy = 0;
                 var bs = BowlerDataStore.bowlers.Where(b => b.Name.ToLower().Contains(e.NewTextValue.ToLower()));
                 bowllist = bs.ToList();
+                do
+                {
+                    if (bowllist.Count == 0) return;
+                    bowlers.Add(bowllist[dy].Name);
+                    dy++;
+                } while (dy < bowllist.Count);
+                TeamBowlerView.ItemsSource = bowlers;
                 if (bowllist.Count == 1)
                 {
                   calcpts.LoadItemId(bowllist[0].Id);
@@ -90,13 +100,22 @@ namespace TriMixedLeague.Views
             }
             else
             {
-                List<Team> teamlist;
+                List<string> team = new List<string>();
+                int dx = 0;
                 var bs = Global.teamlist.Where(t => t.TeamName.ToLower().Contains(e.NewTextValue.ToLower()));
                 teamlist = bs.ToList();
+                do
+                {
+                    if (teamlist.Count == 0) return;
+                    team.Add(teamlist[dx].TeamName);
+                    dx++;
+                } while (dx < teamlist.Count);
+                TeamBowlerView.ItemsSource = team;
                 if (teamlist.Count == 1)
                 {
                     Name.Text = teamlist[0].TeamName;
-                    //calcpts.LoadItemId(teamlist[0].TeamName);
+                    Global.teamid = teamlist[0].TeamName;
+                    calcpts.LoadItemId(Global.itemId);
                 }
             }
             
@@ -155,6 +174,17 @@ namespace TriMixedLeague.Views
                 entry.CursorPosition = 0;
                 entry.SelectionLength = entry.Text.Length;
             });
+        }
+
+        private void TeamBowlerView_Focused(object sender, FocusEventArgs e)
+        {
+
+        }
+
+        private void TeamBowlerView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            Name.Text = (string)e.SelectedItem;
+            TeamBowlerView.ItemsSource = "";
         }
         //public async void LoadItemId(string itemId)
         //{
